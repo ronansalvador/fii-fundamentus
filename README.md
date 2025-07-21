@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🏢 FIIs - Fundamentus Explorer
 
-First, run the development server:
+Visualizador interativo de Fundos Imobiliários (FIIs) com filtros e ordenações dinâmicas, baseado em dados extraídos da plataforma Fundamentus. Desenvolvido com **Next.js**, **React**, **Axios** e estilizado com **CSS responsivo em tema escuro**.
+
+
+
+## 🚀 Funcionalidades
+
+✅ Filtros por:
+
+- Dividend Yield (%)
+- P/VP (Preço sobre Valor Patrimonial)
+- Valor de Mercado (R$)
+- Liquidez diária (R$)
+
+✅ Ordenação clicável por qualquer coluna da tabela  
+✅ Estilo responsivo (funciona bem no celular e no desktop)  
+✅ Tema escuro com design moderno e legível  
+✅ Botão para **limpar filtros** ou aplicar **filtros base**
+
+## 🛠️ Tecnologias Utilizadas
+
+- [Next.js](https://nextjs.org/) – Framework React para SSR/SSG
+- [React](https://reactjs.org/)
+- [Axios](https://axios-http.com/) – Requisições HTTP
+- CSS Puro – Responsivo e com tema escuro
+- [TypeScript](https://www.typescriptlang.org/) – Tipagem estática para maior segurança
+
+## 📦 Instalação Local
 
 ```bash
+# Clone o repositório
+git clone https://github.com/ronansalvador/fiis-fundamentus.git
+
+# Acesse a pasta do projeto
+cd fiis-fundamentus
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto estará disponível em: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 📈 Exemplo de Filtro Base
 
-To learn more about Next.js, take a look at the following resources:
+- Dividend Yield: 10% a 16%
+- P/VP: 0.6 a 0.95
+- Valor de Mercado: acima de R$ 1 bilhão
+- Liquidez: acima de R$ 1 milhão
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Melhorias Futuras
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- ✅ Download da tabela em CSV ou Excel
+- ✅ Adicionar gráfico de desempenho
+- 🔒 Autenticação e filtros personalizados por usuário
+- 🌐 Suporte a múltiplas fontes de dados
 
-## Deploy on Vercel
+## 🤝 Contribuições
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.  
+Se quiser sugerir melhorias, abra uma issue com a tag `enhancement`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
+## 👨‍💻 Autor
+
+Desenvolvido por **[Ronan Salvador](https://github.com/ronansalvador)**.  
+Se curtir, não esquece de deixar uma ⭐ no repositório!
