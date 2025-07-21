@@ -130,7 +130,16 @@ export default function Home() {
     sortAsc,
   ])
 
-  if (dados.length === 0) return <p>Carregando...</p>
+  function Loading() {
+    return (
+      <div className="loading-container">
+        <div className="spinner" />
+        <p>Carregando dados...</p>
+      </div>
+    )
+  }
+
+  if (dados.length === 0) return <Loading />
 
   const handleSort = (col: string) => {
     if (sortBy === col) {
