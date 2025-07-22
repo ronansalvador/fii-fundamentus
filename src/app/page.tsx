@@ -10,6 +10,7 @@ type FiiData = {
 const COLUNAS_EXIBIDAS = [
   'Papel',
   'Segmento',
+  'Cotação',
   'Dividend Yield',
   'P/VP',
   'Valor de Mercado',
@@ -98,15 +99,29 @@ export default function Home() {
 
       // Numérico
       if (
-        ['Dividend Yield', 'P/VP', 'Valor de Mercado', 'Liquidez'].includes(
-          sortBy,
-        )
+        [
+          'Cotação',
+          'Dividend Yield',
+          'P/VP',
+          'Valor de Mercado',
+          'Liquidez',
+        ].includes(sortBy)
       ) {
         const numA = parseFloat(
-          valA.replace('%', '').replace(',', '.').replace(/\./g, '').trim(),
+          valA
+            .replace('%', '')
+            .replace('R$', '')
+            .replace(/\./g, '')
+            .replace(',', '.')
+            .trim(),
         )
         const numB = parseFloat(
-          valB.replace('%', '').replace(',', '.').replace(/\./g, '').trim(),
+          valB
+            .replace('%', '')
+            .replace('R$', '')
+            .replace(/\./g, '')
+            .replace(',', '.')
+            .trim(),
         )
 
         if (isNaN(numA) || isNaN(numB)) return 0
