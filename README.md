@@ -56,7 +56,6 @@ O projeto estará disponível em: [http://localhost:3000](http://localhost:3000)
 
 ## ✨ Melhorias Futuras
 
-- ✅ Download da tabela em CSV ou Excel
 - ✅ Adicionar gráfico de desempenho
 - 🔒 Autenticação e filtros personalizados por usuário
 - 🌐 Suporte a múltiplas fontes de dados

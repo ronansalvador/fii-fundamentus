@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './style.css'
+import ExcelJS from 'exceljs'
+import { saveAs } from 'file-saver'
 
 type FiiData = {
   [key: string]: string
@@ -165,6 +167,49 @@ export default function Home() {
     }
   }
 
+  const exportarExcelFormatado = async () => {
+    const workbook = new ExcelJS.Workbook()
+    const worksheet = workbook.addWorksheet('FIIs Filtrados')
+
+    // Define as colunas com header e chave
+    worksheet.columns = COLUNAS_EXIBIDAS.map((coluna) => ({
+      header: coluna,
+      key: coluna,
+      width: 20,
+    }))
+
+    // Adiciona os dados
+    dadosFiltrados.forEach((item) => {
+      const rowData: any = {}
+      COLUNAS_EXIBIDAS.forEach((col) => {
+        rowData[col] = item[col]
+      })
+      worksheet.addRow(rowData)
+    })
+
+    // Cria a tabela formatada do Excel
+    worksheet.addTable({
+      name: 'FIIsTable',
+      ref: 'A1',
+      headerRow: true,
+      totalsRow: false,
+      style: {
+        theme: 'TableStyleMedium9',
+        showRowStripes: true,
+      },
+      columns: COLUNAS_EXIBIDAS.map((coluna) => ({ name: coluna })),
+      rows: dadosFiltrados.map((item) =>
+        COLUNAS_EXIBIDAS.map((coluna) => item[coluna]),
+      ),
+    })
+
+    const buffer = await workbook.xlsx.writeBuffer()
+    const blob = new Blob([buffer], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    })
+    saveAs(blob, 'fiis-formatado.xlsx')
+  }
+
   return (
     <div className="container">
       <h1>FIIs - Fundamentus</h1>
@@ -223,7 +268,10 @@ export default function Home() {
         <button onClick={filtrosBase}>Aplicar Filtros Base</button>
       </div>
 
-      <p>Total: {dadosFiltrados.length}</p>
+      <div className="export-container">
+        <p>Total: {dadosFiltrados.length}</p>
+        <button onClick={exportarExcelFormatado}>Exportar Excel</button>
+      </div>
 
       <table>
         <thead>

@@ -48,18 +48,27 @@ h1 {
   color: #aaa;
 }
 
-.filtros button {
+.filtros button,
+button {
   padding: 10px 12px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   background-color: #00c853; /* Verde */
-  color: #ffffff;
+  color: black;
   transition: background-color 0.2s;
 }
 
-.filtros button:hover {
+.filtros button:hover,
+button:hover {
   background-color: #009624;
+}
+
+.export-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1.5rem;
 }
 
 table {
